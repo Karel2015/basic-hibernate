@@ -6,4 +6,10 @@ import org.wx.eLearning.model.User;
 @Repository("userDao")
 public class UserDao extends BaseDao<User> implements IUserDao{
 
+	@Override
+	public User select(Integer id) {
+		User user = (User) getSession().get(User.class, id);
+		return user;
+	}
+	
 }
